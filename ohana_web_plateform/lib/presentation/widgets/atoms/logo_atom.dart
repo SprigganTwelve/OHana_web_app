@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Logo extends StatelessWidget {
-  double heightLogo = 100;
-  double widthImage = 100;
-  Logo({required this.heightLogo, required this.widthImage});
+class LogoAtom extends StatelessWidget {
+  double heightLogo;
+  double widthImage;
+  LogoAtom({this.heightLogo = 100, this.widthImage = 100});
 
   @override
   Widget build(BuildContext context) {
