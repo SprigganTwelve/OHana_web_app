@@ -33,6 +33,7 @@ dependencies:
   logger: ^2.2.0
   flutter_polygon: ^0.3.0+2
   flutter_svg: ^2.0.10+1
+  google_maps_flutter: ^2.6.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -62,6 +63,7 @@ flutter:
   uses-material-design: true
   assets:
         - assets/images/
+        - assets/svg/
   
 
   # To add assets to your application, add an assets section, like this:

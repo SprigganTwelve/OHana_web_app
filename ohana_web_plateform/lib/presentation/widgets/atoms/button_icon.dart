@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ButtonIcon extends StatelessWidget {
-  const ButtonIcon({super.key});
+  const ButtonIcon({super.key, required this.nameSvgFile});
+  final String nameSvgFile;
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/images/linkedinBlackModel.svg',
+      'assets/svg/$nameSvgFile',
       width: 50,
       height: 50,
     );

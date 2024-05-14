@@ -20,8 +20,8 @@ class TextListMol extends StatelessWidget {
     return Expanded(
       child: ListView(
           padding: EdgeInsets.all(8.0),
-          children: _getSetOfTextListItem(
-              textList) /*const <Widget>[
+          children: _getSetOfTextListItem(textList)
+          /*const <Widget>[
           TextListItemAtom(text: "Pomme"),
           TextListItemAtom(text: "Banane"),
           TextListItemAtom(text: "Cerise"),

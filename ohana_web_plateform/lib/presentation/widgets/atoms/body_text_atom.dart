@@ -4,9 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 class BodyTextAtom extends StatelessWidget {
   final String text;
   final List<String> boldTextList;
+  final double boldFontSizeVal;
+  final double noBoldFontSizeVal;
 
   const BodyTextAtom(
-      {super.key, required this.text, required this.boldTextList});
+      {super.key,
+      required this.text,
+      required this.boldTextList,
+      this.boldFontSizeVal = 20,
+      this.noBoldFontSizeVal = 20});
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +47,13 @@ class BodyTextAtom extends StatelessWidget {
       if (boldTextList.contains(textList[i])) {
         var boldText = TextSpan(
           text: textList[i],
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style:
+              TextStyle(fontWeight: FontWeight.bold, fontSize: boldFontSizeVal),
         );
         textSpanList.add(boldText);
       } else {
-        var normalText = TextSpan(text: textList[i]);
+        var normalText = TextSpan(
+            text: textList[i], style: TextStyle(fontSize: noBoldFontSizeVal));
         textSpanList.add(normalText);
       }
     }
