@@ -8,8 +8,8 @@ class BoxShapeAtom extends StatelessWidget {
   const BoxShapeAtom({
     super.key,
     this.boxShape = BoxShape.rectangle,
-    this.heightVal = 400.0,
-    this.widthVal = 600.0,
+    this.heightVal = 300.0,
+    this.widthVal = 440.0,
     this.colorVal = const Color.fromARGB(255, 132, 193, 243),
   });
 

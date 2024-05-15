@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/box_shape_atom.dart';
@@ -10,8 +11,14 @@ class BoxUnderImageMol extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BoxShapeAtom(),
-        Positioned(left: 0, bottom: -4, child: ImageAtom(link: 'gojo.jpg'))
+        const BoxShapeAtom(),
+        Positioned(
+          left: 0,
+          bottom: 0,
+          child: Transform.translate(
+              offset: const Offset(-70, 70),
+              child: const ImageAtom(link: 'gojo.jpg')),
+        )
       ],
     );
   }

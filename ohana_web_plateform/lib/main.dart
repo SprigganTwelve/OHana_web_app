@@ -67,6 +67,10 @@ class MyApp extends StatelessWidget {
                 },
                 title: 'text'),
             // HexagonAndTextMol(textContent: 'textContent')
+            TextListMol(
+              textList: ['My text', 'item', 'my own text'],
+            ),
+            BoxUnderImageMol()
           ]),
         ));
   }

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class TextListItemAtom extends StatelessWidget {
   final String text;
   final double fontSized;
-  const TextListItemAtom({Key? key, required this.text, this.fontSized = 20.0})
+  final IconData icon;
+  const TextListItemAtom(
+      {Key? key, required this.text, this.fontSized = 20.0, required this.icon})
       : super(key: key);
 
   @override
@@ -14,7 +16,7 @@ class TextListItemAtom extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(right: 10.0),
-            child: const Icon(Icons.brightness_1,
+            child: Icon(icon,
                 size: 6.0, color: Colors.black), // Cette icône sert de puce
           ),
           Expanded(
