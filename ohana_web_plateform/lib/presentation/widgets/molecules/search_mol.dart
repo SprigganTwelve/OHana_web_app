@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/input_atom.dart';
@@ -8,12 +9,21 @@ class SearchBarMol extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        InputAtom(),
+        InputAtom(
+          widthVal: 300,
+        ),
         SizedBox(
           width: 5,
         ),
-        ButtonIconAtom(nameSvgFile: 'searchIconGoogleFont.svg')
+        ButtonIconAtom(
+          nameSvgFile: 'searchIconGoogleFont.svg',
+          backColor: Colors.purple,
+          color: Colors.white,
+          heightVal: 50,
+          radius: 10,
+        )
       ],
     );
   }

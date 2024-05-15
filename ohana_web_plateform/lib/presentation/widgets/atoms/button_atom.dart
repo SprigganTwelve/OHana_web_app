@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 class ButtonAtom extends StatefulWidget {
   final String content;
   final ButtonType type;
+  final double fontSizeVal;
 
-  const ButtonAtom(this.content, {super.key, required this.type});
+  const ButtonAtom(this.content,
+      {super.key, required this.type, this.fontSizeVal = 15});
 
   @override
   _ButtonAtomState createState() => _ButtonAtomState();
@@ -31,7 +33,9 @@ class _ButtonAtomState extends State<ButtonAtom> {
         child: Text(
           widget.content,
           style: TextStyle(
-              fontWeight: FontWeight.normal, color: widget.type.textColor),
+              fontWeight: FontWeight.normal,
+              color: widget.type.textColor,
+              fontSize: widget.fontSizeVal),
         ),
       ),
     );

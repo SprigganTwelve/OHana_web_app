@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib\\main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "ohana_web_plateform",
+            "program": "lib\\main.dart"
+        }
+    ]
+}

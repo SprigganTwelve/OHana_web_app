@@ -23,11 +23,14 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_sha
 import 'package:ohana_web_plateform/presentation/widgets/molecules/box_under_image_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/hexagon_and_text_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/link_path_mol.dart';
+import 'package:ohana_web_plateform/presentation/widgets/molecules/nav_bar_buttons_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/navbar_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,18 +51,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
           backgroundColor: Colors.white,
-          body: Row(children: [
-            BlogCardOrg(
-              pathOfTopImage: 'trseven.jpg',
-              borderRaduisCircularVal: 20,
-              normalTextAndBoldListMap: {
-                'text':
-                    "My funny text is start : Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita labore perspiciatis, eaque ducimus nobis molestias blanditiis illum suscipit, deserunt necessitatibus animi dignissimos vero, mollitia facilis repellat vitae. Ipsum, eligendi alias.",
-                'boldTextList': ['My funny text is start']
-              },
-            ),
-            BoxUnderImageMol(),
-            SocialNetworkIconMol()
+          body: Column(children: [
+            // NavBarOrg(),
+            // TextListMol(textList: ['dyhdydydy', 'hdhdhdhd']),
+            SearchInputOrg()
           ]),
         ));
   }

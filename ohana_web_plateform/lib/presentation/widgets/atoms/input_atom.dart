@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class InputAtom extends StatelessWidget {
   final String placeholder;
-  const InputAtom({super.key, this.placeholder = ''});
-
+  const InputAtom({super.key, this.placeholder = '', this.widthVal = 600});
+  final double widthVal;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 600,
+      width: widthVal,
       child: TextField(
           decoration: InputDecoration(
               hintText: placeholder,
