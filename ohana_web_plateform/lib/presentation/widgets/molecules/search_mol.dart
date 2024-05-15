@@ -13,7 +13,7 @@ class SearchBarMol extends StatelessWidget {
         SizedBox(
           width: 5,
         ),
-        ButtonIcon(nameSvgFile: 'searchIconGoogleFont.svg')
+        ButtonIconAtom(nameSvgFile: 'searchIconGoogleFont.svg')
       ],
     );
   }

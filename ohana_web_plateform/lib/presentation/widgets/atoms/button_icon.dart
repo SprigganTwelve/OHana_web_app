@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ButtonIcon extends StatelessWidget {
-  const ButtonIcon({super.key, required this.nameSvgFile});
+class ButtonIconAtom extends StatelessWidget {
+  const ButtonIconAtom({super.key, required this.nameSvgFile});
   final String nameSvgFile;
 
   @override

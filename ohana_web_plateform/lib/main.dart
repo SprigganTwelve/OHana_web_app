@@ -24,6 +24,7 @@ import 'package:ohana_web_plateform/presentation/widgets/molecules/box_under_ima
 import 'package:ohana_web_plateform/presentation/widgets/molecules/hexagon_and_text_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/link_path_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
+import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
@@ -57,7 +58,8 @@ class MyApp extends StatelessWidget {
                 'boldTextList': ['My funny text is start']
               },
             ),
-            BoxUnderImageMol()
+            BoxUnderImageMol(),
+            SocialNetworkIconMol()
           ]),
         ));
   }
