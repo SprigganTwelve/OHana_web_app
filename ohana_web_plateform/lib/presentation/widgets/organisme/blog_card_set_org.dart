@@ -26,7 +26,6 @@ class BlogCardOrg extends StatelessWidget {
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: Colors.black, width: 1),
           borderRadius: BorderRadius.circular(borderRaduisCircularVal),
           boxShadow: [
             BoxShadow(

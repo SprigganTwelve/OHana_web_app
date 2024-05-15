@@ -5,26 +5,37 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart
 import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
 
 class SearchInputOrg extends StatelessWidget {
-  const SearchInputOrg({super.key});
+  const SearchInputOrg(
+      {super.key, this.title = 'Title', this.textAtBottom = ''});
+  final String title;
+  final String textAtBottom;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(
+          color:
+              Colors.grey.withOpacity(0.5), // Couleur de l'ombre avec opacité
+          spreadRadius: 5, // Rayon de diffusion de l'ombre
+          blurRadius: 7, // Rayon de flou de l'ombre
+          offset: const Offset(0, 3),
+        ),
+      ]),
       width: 422,
-      child: const Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          H1TextAtom(text: 'My title'),
-          SizedBox(
+          H1TextAtom(text: title),
+          const SizedBox(
             height: 3,
           ),
-          SearchBarMol(),
+          const SearchBarMol(),
           Padding(
-            padding: EdgeInsets.only(left: 60, right: 60, bottom: 5, top: 5),
-            child: Text(
-                '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait'),
+            padding:
+                const EdgeInsets.only(left: 60, right: 60, bottom: 5, top: 5),
+            child: Text(textAtBottom),
           )
         ],
       ),
