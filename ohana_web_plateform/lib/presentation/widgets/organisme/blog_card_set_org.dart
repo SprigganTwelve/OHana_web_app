@@ -9,12 +9,19 @@ class BlogCardOrg extends StatelessWidget {
       this.borderRaduisCircularVal = 0,
       required this.pathOfTopImage,
       required this.textAndBoldListMap,
-      required this.title});
+      required this.title,
+      this.isVertical = false});
   final double borderRaduisCircularVal;
   final String pathOfTopImage;
   final String title;
+  final bool isVertical;
   final Map<String, dynamic>
       textAndBoldListMap; // 'text' key and 'boldTextList', their types are repectively Strin and List<String>
+
+  controlPositionAxe(isVertical) {
+    // TODO: implement getAllBlogPosts
+    throw UnimplementedError();
+  }
 
   @override
   Widget build(BuildContext context) {

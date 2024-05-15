@@ -51,21 +51,22 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
           backgroundColor: Colors.white,
-          body: Column(children: [
+          body: Row(children: [
             // NavBarOrg(),
             // TextListMol(textList: ['dyhdydydy', 'hdhdhdhd']),
-            SearchInputOrg(
-              title: 'Gugu',
-              textAtBottom:
-                  '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
-            ),
+            // SearchInputOrg(
+            //   title: 'Gugu',
+            //   textAtBottom:
+            //       '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
+            // ),
             BlogCardOrg(
                 pathOfTopImage: 'gojo.jpg',
                 textAndBoldListMap: {
                   'text': 'Gugu, je suis blazé ',
                   'boldTextList': ['Gugug']
                 },
-                title: 'text')
+                title: 'text'),
+            // HexagonAndTextMol(textContent: 'textContent')
           ]),
         ));
   }
