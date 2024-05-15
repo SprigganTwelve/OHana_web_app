@@ -9,9 +9,10 @@ class SearchInputOrg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return Container(
+      decoration: BoxDecoration(),
       width: 422,
-      child: Column(
+      child: const Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -21,9 +22,9 @@ class SearchInputOrg extends StatelessWidget {
           ),
           SearchBarMol(),
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 60, right: 60, bottom: 5, top: 5),
             child: Text(
-                'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'),
+                '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait'),
           )
         ],
       ),
