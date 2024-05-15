@@ -32,6 +32,7 @@ import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_ti
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/form_contact_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/navbar_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
 
 void main() {
@@ -54,19 +55,20 @@ class MyApp extends StatelessWidget {
         home: const Scaffold(
           backgroundColor: Colors.white,
           body: Column(children: [
-            NavBarOrg(),
-            SearchInputOrg(
-              title: 'Gugu',
-              textAtBottom:
-                  '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
-            ),
-            FormContactOrg(
-              title: 'Contact',
-              nameAndPlaceholderListMap: [
-                {'name': 'Nom', 'placeholder': 'votre nom'},
-                {'name': 'Prenom', 'placeholder': 'votre Prenom'}
-              ],
-            )
+            // NavBarOrg(),
+            // SearchInputOrg(
+            //   title: 'Gugu',
+            //   textAtBottom:
+            //       '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
+            // ),
+            // FormContactOrg(
+            //   title: 'Contact',
+            //   nameAndPlaceholderListMap: [
+            //     {'name': 'Nom', 'placeholder': 'votre nom'},
+            //     {'name': 'Prenom', 'placeholder': 'votre Prenom'}
+            //   ],
+            // ),
+            ProfilCardOrg()
           ]),
         ));
   }
