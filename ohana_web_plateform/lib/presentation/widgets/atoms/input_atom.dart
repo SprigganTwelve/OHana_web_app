@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class InputAtom extends StatelessWidget {
   final String placeholder;
-  const InputAtom({super.key, this.placeholder = '', this.widthVal = 600});
   final double widthVal;
+  const InputAtom({super.key, this.placeholder = '', this.widthVal = 600});
   @override
   Widget build(BuildContext context) {
     return SizedBox(

@@ -22,6 +22,7 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/underline_atom.da
 import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_shape_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/box_under_image_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/hexagon_and_text_mol.dart';
+import 'package:ohana_web_plateform/presentation/widgets/molecules/named_input_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/link_path_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/nav_bar_buttons_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
@@ -29,6 +30,7 @@ import 'package:ohana_web_plateform/presentation/widgets/molecules/social_networ
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/form_contact_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/navbar_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
 
@@ -51,26 +53,20 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
           backgroundColor: Colors.white,
-          body: Row(children: [
-            // NavBarOrg(),
-            // TextListMol(textList: ['dyhdydydy', 'hdhdhdhd']),
-            // SearchInputOrg(
-            //   title: 'Gugu',
-            //   textAtBottom:
-            //       '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
-            // ),
-            BlogCardOrg(
-                pathOfTopImage: 'gojo.jpg',
-                textAndBoldListMap: {
-                  'text': 'Gugu, je suis blazé ',
-                  'boldTextList': ['Gugug']
-                },
-                title: 'text'),
-            // HexagonAndTextMol(textContent: 'textContent')
-            TextListMol(
-              textList: ['My text', 'item', 'my own text'],
+          body: Column(children: [
+            NavBarOrg(),
+            SearchInputOrg(
+              title: 'Gugu',
+              textAtBottom:
+                  '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
             ),
-            BoxUnderImageMol()
+            FormContactOrg(
+              title: 'Contact',
+              nameAndPlaceholderListMap: [
+                {'name': 'Nom', 'placeholder': 'votre nom'},
+                {'name': 'Prenom', 'placeholder': 'votre Prenom'}
+              ],
+            )
           ]),
         ));
   }

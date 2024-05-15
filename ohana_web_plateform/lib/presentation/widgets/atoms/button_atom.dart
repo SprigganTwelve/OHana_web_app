@@ -44,7 +44,9 @@ class _ButtonAtomState extends State<ButtonAtom> {
 
 Border? getBorderOnNavbarButton(ButtonType type) {
   return type.isNavbarButton()
-      ? const Border(bottom: BorderSide(color: Color(0xff865DFF), width: 6.0))
+      ? const Border(
+          bottom:
+              BorderSide(color: Colors.white /*Color(0xff865DFF)*/, width: 6.0))
       : null;
 }
 
@@ -52,7 +54,7 @@ enum ButtonType {
   navbar(
       primaryColor: Color(0x00000000),
       hoverColor: Color(0x00000000),
-      textColor: Colors.black),
+      textColor: Colors.white),
   standard(
       primaryColor: Color(0xff865DFF),
       hoverColor: Color(0xffE384FF),
