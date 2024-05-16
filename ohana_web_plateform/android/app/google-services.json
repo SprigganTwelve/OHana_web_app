@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380509564475",
+    "project_id": "ohanawebapp",
+    "storage_bucket": "ohanawebapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380509564475:android:c2919dfc0c719443b5b61e",
+        "android_client_info": {
+          "package_name": "com.example.ohana_web_plateform"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBauNouY5IP39HonLMpeJ_a-_W1ASGLJ4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

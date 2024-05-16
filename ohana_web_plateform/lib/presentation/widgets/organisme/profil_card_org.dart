@@ -10,16 +10,16 @@ class ProfilCardOrg extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          child: Padding(
-              padding: EdgeInsets.only(left: 20, top: 20),
-              child: H2TextAtom(text: 'name')),
           width: 900,
           height: 100,
           decoration: BoxDecoration(
               border: Border.all(width: 3),
               borderRadius: BorderRadius.circular(20)),
+          child: const Padding(
+              padding: EdgeInsets.only(left: 20, top: 20),
+              child: H2TextAtom(text: 'name')),
         ),
-        ImageAtom(
+        const ImageAtom(
           link: 'gojo.jpg',
           heightVal: 200,
           widthVal: 200,
