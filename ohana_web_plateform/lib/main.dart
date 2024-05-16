@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         home: const Scaffold(
           backgroundColor: Colors.white,
           body: Column(children: [
-            // NavBarOrg(),
+            NavBarOrg(),
             // SearchInputOrg(
             //   title: 'Gugu',
             //   textAtBottom:
