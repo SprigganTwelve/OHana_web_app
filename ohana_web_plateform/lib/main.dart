@@ -23,16 +23,16 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_sha
 import 'package:ohana_web_plateform/presentation/widgets/molecules/box_under_image_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/hexagon_and_text_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/named_input_mol.dart';
-import 'package:ohana_web_plateform/presentation/widgets/molecules/link_path_mol.dart';
-import 'package:ohana_web_plateform/presentation/widgets/molecules/nav_bar_buttons_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/carousel_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/form_contact_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/navbar_org.dart';
-import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_omg_inf_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_user_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
 
 void main() {
@@ -56,32 +56,8 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           body: Column(children: [
             NavBarOrg(),
-            // SearchInputOrg(
-            //   title: 'Gugu',
-            //   textAtBottom:
-            //       '   Vous êtes pas de taille , on a plus de like sur twitter, c\'est nous que le came attendait',
-            // ),
-            // FormContactOrg(
-            //   title: 'Contact',
-            //   nameAndPlaceholderListMap: [
-            //     {'name': 'Nom', 'placeholder': 'votre nom'},
-            //     {'name': 'Prenom', 'placeholder': 'votre Prenom'}
-            //   ],
-            // ),
-            ProfilCardOrg()
           ]),
         ));
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return LinkPathMol(linkList: [
-      {'textPath': 'Go To Second Page', 'widget': MyTestPage}
-    ]);
   }
 }
 

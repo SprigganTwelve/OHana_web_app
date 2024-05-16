@@ -5,7 +5,8 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/box_shape_atom.da
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
 
 class BoxUnderImageMol extends StatelessWidget {
-  const BoxUnderImageMol({super.key});
+  const BoxUnderImageMol({super.key, this.text = ''});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class BoxUnderImageMol extends StatelessWidget {
           left: 0,
           bottom: 0,
           child: Transform.translate(
-              offset: const Offset(-70, 70),
+              offset: const Offset(-80, 80),
               child: const ImageAtom(link: 'gojo.jpg')),
         )
       ],

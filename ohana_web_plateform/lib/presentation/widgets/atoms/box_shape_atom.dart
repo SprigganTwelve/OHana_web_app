@@ -5,12 +5,14 @@ class BoxShapeAtom extends StatelessWidget {
   final double heightVal;
   final double widthVal;
   final Color colorVal;
+  // final String text;
   const BoxShapeAtom({
     super.key,
     this.boxShape = BoxShape.rectangle,
     this.heightVal = 300.0,
     this.widthVal = 440.0,
     this.colorVal = const Color.fromARGB(255, 132, 193, 243),
+    /*this.text = "" */
   });
 
   @override
@@ -19,6 +21,13 @@ class BoxShapeAtom extends StatelessWidget {
       width: widthVal,
       height: heightVal,
       decoration: BoxDecoration(color: colorVal, shape: boxShape),
+      // child: Align(
+      //   alignment: Alignment.topCenter,
+      //   child: Text(
+      //     text,
+      //     style: const TextStyle(color: Colors.white),
+      //   ),
+      // ),
     );
   }
 }

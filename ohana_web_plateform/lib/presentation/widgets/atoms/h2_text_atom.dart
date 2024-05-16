@@ -8,7 +8,9 @@ class H2TextAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(fontSize: 25),
+      style: const TextStyle(
+        fontSize: 25,
+      ),
     );
   }
 }
