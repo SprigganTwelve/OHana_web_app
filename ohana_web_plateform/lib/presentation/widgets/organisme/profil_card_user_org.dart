@@ -38,8 +38,6 @@ class ProfilCardOrg extends StatelessWidget {
             offset: const Offset(10, -40),
             child: const ImageAtom(
               link: 'gojo.jpg',
-              heightVal: 150,
-              widthVal: 150,
               imageType: ImageDimensionType.userImage,
             ),
           ),

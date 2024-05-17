@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 class ImageAtom extends StatelessWidget {
   const ImageAtom(
       {super.key,
-      this.heightVal = 300,
       required this.link,
-      this.widthVal = 420,
       this.fitVal = BoxFit.cover,
       this.imageType = ImageDimensionType.standard});
-  final double heightVal;
-  final double widthVal;
+
   final String link;
   // final double borderRadiusCircularVal;
   final BoxFit fitVal;
@@ -21,23 +18,30 @@ class ImageAtom extends StatelessWidget {
       child: Image.asset(
         'assets/images/$link',
         fit: fitVal,
-        width: widthVal,
-        height: heightVal,
+        width: imageType.widthVal,
+        height: imageType.heightVal,
       ),
     );
   }
 }
 
 enum ImageDimensionType {
-  defaultCarouselImage(
-    heightVal: 450.0,
-  ),
+  defaultCarouselImage(heightVal: 450, borderRaiusVal: 0),
   standard(
-    heightVal: 300,
+    heightVal: 340,
     widthVal: 420,
     borderRaiusVal: 50,
   ),
-  userImage(borderRaiusVal: 100);
+  videoImage(
+    heightVal: 430,
+    widthVal: 400,
+    borderRaiusVal: 20,
+  ),
+  userImage(
+    borderRaiusVal: 100,
+    heightVal: 150,
+    widthVal: 150,
+  );
 
   final double? heightVal;
   final double? widthVal;

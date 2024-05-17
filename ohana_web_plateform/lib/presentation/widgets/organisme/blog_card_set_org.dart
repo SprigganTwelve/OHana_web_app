@@ -6,12 +6,10 @@ import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_ti
 class BlogCardOrg extends StatelessWidget {
   const BlogCardOrg(
       {super.key,
-      this.borderRaduisCircularVal = 0,
       required this.pathOfTopImage,
       required this.textAndBoldListMap,
       required this.title,
       this.isVertical = false});
-  final double borderRaduisCircularVal;
   final String pathOfTopImage;
   final String title;
   final bool isVertical;
@@ -33,7 +31,8 @@ class BlogCardOrg extends StatelessWidget {
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(borderRaduisCircularVal),
+          borderRadius:
+              BorderRadius.circular(ImageDimensionType.standard.borderRaiusVal),
           boxShadow: [
             BoxShadow(
               color: Colors.grey

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ohana_web_plateform/presentation/pages/acceuil_page.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/box_shape_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/geo_map_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
@@ -55,15 +56,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
           backgroundColor: Colors.white,
-          body: Column(children: [
-            // NavBarOrg(
-            //   followingWidget: CarouselOrg(),
-            // ),
-            BlogCardOrg(
-                pathOfTopImage: 'gojo4.jpg',
-                textAndBoldListMap: {},
-                title: "title")
-          ]),
+          body: Column(children: [AcceuilPage()]),
         ));
   }
 }
