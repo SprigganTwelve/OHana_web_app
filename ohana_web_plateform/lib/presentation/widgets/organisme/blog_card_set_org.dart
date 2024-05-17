@@ -50,7 +50,6 @@ class BlogCardOrg extends StatelessWidget {
           children: [
             ImageAtom(
               link: pathOfTopImage,
-              borderRadiusCircularVal: borderRaduisCircularVal,
             ),
             UnderlinedTitleMol(
               text: title,

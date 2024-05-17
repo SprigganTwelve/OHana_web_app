@@ -6,7 +6,7 @@ class ButtonAtom extends StatefulWidget {
   final double fontSizeVal;
 
   const ButtonAtom(this.content,
-      {super.key, required this.type, this.fontSizeVal = 15});
+      {super.key, required this.type, this.fontSizeVal = 17});
 
   @override
   _ButtonAtomState createState() => _ButtonAtomState();
@@ -26,7 +26,7 @@ class _ButtonAtomState extends State<ButtonAtom> {
       },
       child: Container(
         padding: const EdgeInsets.only(
-            left: 30.0, top: 5.0, right: 30.0, bottom: 5.0),
+            left: 20.0, top: 5.0, right: 20.0, bottom: 5.0),
         decoration: BoxDecoration(
             color: _isHover ? widget.type.hoverColor : widget.type.primaryColor,
             border: _isHover ? getBorderOnNavbarButton(widget.type) : null),
@@ -56,7 +56,7 @@ enum ButtonType {
       hoverColor: Color(0x00000000),
       textColor: Colors.white),
   standard(
-      primaryColor: Color(0xff865DFF),
+      primaryColor: Color.fromARGB(255, 168, 60, 250),
       hoverColor: Color(0xffE384FF),
       textColor: Colors.white),
   green(

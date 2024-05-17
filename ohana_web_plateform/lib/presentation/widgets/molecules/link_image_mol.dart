@@ -6,7 +6,7 @@ class LinkTextAtom extends StatelessWidget {
       required this.secondPage,
       required this.text,
       this.fontSizeVal = 20,
-      this.textColor = Colors.black,
+      this.textColor = Colors.white,
       this.isUnderlined = false});
   final Widget secondPage;
   final String text;

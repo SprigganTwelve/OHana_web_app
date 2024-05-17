@@ -40,7 +40,7 @@ class ProfilCardOrg extends StatelessWidget {
               link: 'gojo.jpg',
               heightVal: 150,
               widthVal: 150,
-              borderRadiusCircularVal: 100,
+              imageType: ImageDimensionType.userImage,
             ),
           ),
         ],

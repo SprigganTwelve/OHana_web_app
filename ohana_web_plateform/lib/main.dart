@@ -29,8 +29,9 @@ import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/blog_card_set_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/carousel_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/exp.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/form_contact_org.dart';
-import 'package:ohana_web_plateform/presentation/widgets/organisme/navbar_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/nav_bar_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_omg_inf_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_user_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
@@ -55,7 +56,13 @@ class MyApp extends StatelessWidget {
         home: const Scaffold(
           backgroundColor: Colors.white,
           body: Column(children: [
-            NavBarOrg(),
+            // NavBarOrg(
+            //   followingWidget: CarouselOrg(),
+            // ),
+            BlogCardOrg(
+                pathOfTopImage: 'gojo4.jpg',
+                textAndBoldListMap: {},
+                title: "title")
           ]),
         ));
   }

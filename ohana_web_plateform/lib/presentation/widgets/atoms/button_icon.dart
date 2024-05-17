@@ -9,8 +9,8 @@ class ButtonIconAtom extends StatelessWidget {
       this.color = Colors.black,
       this.borderSideBottom = BorderSide.none,
       this.backColor = Colors.transparent,
-      this.heightVal = 20,
-      this.widthVal = 20,
+      this.heightVal = 18,
+      this.widthVal = 18,
       this.radius = 0});
   final String nameSvgFile;
   final Color color;
