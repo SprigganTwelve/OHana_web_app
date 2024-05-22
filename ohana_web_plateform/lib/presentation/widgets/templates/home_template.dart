@@ -1,13 +1,8 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/logo_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/rect_triangle_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
