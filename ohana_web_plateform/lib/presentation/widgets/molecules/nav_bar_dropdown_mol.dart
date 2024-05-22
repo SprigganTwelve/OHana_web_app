@@ -5,6 +5,7 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/button_atom.dart'
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/link_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/underline_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class NavbarDropdownMol extends StatelessWidget {
   final bool boxPositionningStart;

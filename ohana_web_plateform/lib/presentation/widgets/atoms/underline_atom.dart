@@ -4,7 +4,7 @@ class UnderlineAtom extends StatelessWidget {
   final double size;
   const UnderlineAtom(
       {super.key,
-      this.size = 100,
+      required this.size,
       this.color = Colors.black,
       this.thickness = 5.0});
   final Color color;

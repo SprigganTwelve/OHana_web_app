@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ohana_web_plateform/presentation/pages/acceuil_page.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/custom_nav_bar_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/templates/home_page_template_model1.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/box_shape_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/geo_map_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
@@ -36,6 +37,7 @@ import 'package:ohana_web_plateform/presentation/widgets/organisme/nav_bar_org.d
 import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_omg_inf_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/profil_card_user_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/search_input_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/templates/home_template.dart';
 
 void main() {
   runApp(MyApp());
@@ -55,9 +57,7 @@ class MyApp extends StatelessWidget {
         //GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
         debugShowCheckedModeBanner: false,
         home: const Scaffold(
-          backgroundColor: Colors.white,
-          body: Column(children: [AcceuilPage()]),
-        ));
+            backgroundColor: Colors.white, body: HomeTemplate()));
   }
 }
 

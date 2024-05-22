@@ -8,8 +8,8 @@ class RectTriangleBorderAtom extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         border: Border(
-          left: BorderSide(width: 30.0, color: Colors.transparent),
-          right: BorderSide(width: 30.0, color: Color.fromARGB(255, 0, 0, 0)),
+          left: BorderSide(width: 30.0, color: Color.fromARGB(255, 0, 0, 0)),
+          right: BorderSide(width: 30.0, color: Colors.transparent),
           bottom: BorderSide(width: 50.0, color: Colors.transparent),
         ),
       ),

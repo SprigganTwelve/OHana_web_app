@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:ohana_web_plateform/data/helpers/constants.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_shape_atom.dart';
 
 class CarouselOrg extends StatefulWidget {
   const CarouselOrg({
@@ -50,31 +51,53 @@ class _CarouselOrgState extends State<CarouselOrg> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        CarouselSlider(
-            items: widget.imageListAtom.map((image) {
-              return SizedBox(
-                height: widget.heightVal,
-                child: Container(
+    return SizedBox(
+      height: widget.heightVal,
+      child: Stack(
+        children: [
+          CarouselSlider(
+              items: widget.imageListAtom.map((image) {
+                return Container(
                   width: screenWidth,
                   decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   child: image,
-                ),
-              );
-            }).toList(),
-            options: CarouselOptions(
-                height: widget.heightVal,
-                viewportFraction: 1,
-                onPageChanged: (index, _) =>
-                    dotsController.updatePageIndicator(index))),
-        DotsWidgetView(
-          slideNumber: widget.imageListAtom.length,
-          dotInstanceController: dotsController,
-        )
-      ],
+                );
+              }).toList(),
+              options: CarouselOptions(
+                  height: widget.heightVal,
+                  viewportFraction: 1,
+                  onPageChanged: (index, _) =>
+                      dotsController.updatePageIndicator(index))),
+          getTextMessage(),
+          DotsWidgetView(
+            slideNumber: widget.imageListAtom.length,
+            dotInstanceController: dotsController,
+          )
+        ],
+      ),
+    );
+  }
+
+  getTextMessage() {
+    return const Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: EdgeInsets.only(left: 40),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            VerticalLineShapeAtom(
+              color: Colors.purple,
+            ),
+            Text(
+              "OHana vous souhaite la bienvennue",
+              style: TextStyle(fontSize: 50, color: Colors.white),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

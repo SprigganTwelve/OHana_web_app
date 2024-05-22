@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class TextListItemAtom extends StatelessWidget {
   final String text;
   final double fontSized;
   final IconData icon;
+  final Color color;
   const TextListItemAtom(
-      {Key? key, required this.text, this.fontSized = 20.0, required this.icon})
+      {Key? key,
+      required this.text,
+      this.fontSized = 20.0,
+      required this.icon,
+      required this.color})
       : super(key: key);
 
   @override
@@ -13,17 +19,16 @@ class TextListItemAtom extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(8.0),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            margin: const EdgeInsets.only(right: 10.0),
-            child: Icon(icon,
-                size: 6.0, color: Colors.black), // Cette icône sert de puce
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child:
+                Icon(icon, size: 6.0, color: color), // Cette icône sert de puce
           ),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(fontSize: fontSized),
-            ),
+          Text(
+            text,
+            style: TextStyle(fontSize: fontSized, color: color),
           ),
         ],
       ),

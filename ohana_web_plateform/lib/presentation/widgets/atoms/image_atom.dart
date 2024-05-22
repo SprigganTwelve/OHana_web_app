@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImageAtom extends StatelessWidget {
@@ -33,7 +34,7 @@ enum ImageDimensionType {
     borderRaiusVal: 50,
   ),
   videoImage(
-    heightVal: 430,
+    heightVal: 400,
     widthVal: 400,
     borderRaiusVal: 20,
   ),
@@ -41,7 +42,13 @@ enum ImageDimensionType {
     borderRaiusVal: 100,
     heightVal: 150,
     widthVal: 150,
-  );
+  ),
+  imageListTextView(
+    heightVal: 500,
+    widthVal: 500,
+    borderRaiusVal: 0,
+  ),
+  imageLink(heightVal: 90, widthVal: 200, borderRaiusVal: 10);
 
   final double? heightVal;
   final double? widthVal;
