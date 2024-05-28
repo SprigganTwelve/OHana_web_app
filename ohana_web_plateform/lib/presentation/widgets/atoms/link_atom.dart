@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class LinkTextAtom extends StatelessWidget {
   const LinkTextAtom({

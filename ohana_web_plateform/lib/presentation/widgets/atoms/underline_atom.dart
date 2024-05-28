@@ -6,7 +6,7 @@ class UnderlineAtom extends StatelessWidget {
       {super.key,
       required this.size,
       this.color = Colors.black,
-      this.thickness = 5.0});
+      required this.thickness});
   final Color color;
   final double thickness;
   @override

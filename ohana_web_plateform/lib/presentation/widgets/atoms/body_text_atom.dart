@@ -6,13 +6,17 @@ class BodyTextAtom extends StatelessWidget {
   final List<String> boldTextList;
   final double boldFontSizeVal;
   final double noBoldFontSizeVal;
+  final bool isOverflowEllipsis;
+  final int? maxLines;
 
   const BodyTextAtom(
       {super.key,
       required this.text,
       required this.boldTextList,
       this.boldFontSizeVal = 20,
-      this.noBoldFontSizeVal = 20});
+      this.noBoldFontSizeVal = 20,
+      this.isOverflowEllipsis = false,
+      this.maxLines});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,9 @@ class BodyTextAtom extends StatelessWidget {
 
   RichText getRichTextFromFormattedText(String formattedText) {
     return RichText(
+      softWrap: true,
+      maxLines: maxLines,
+      overflow: isOverflowEllipsis ? TextOverflow.ellipsis : TextOverflow.clip,
       text: TextSpan(
         style: GoogleFonts.titilliumWeb(fontSize: 15.0),
         children: getTextSpanListFromText(formattedText),
@@ -53,7 +60,11 @@ class BodyTextAtom extends StatelessWidget {
         textSpanList.add(boldText);
       } else {
         var normalText = TextSpan(
-            text: textList[i], style: TextStyle(fontSize: noBoldFontSizeVal));
+          text: textList[i],
+          style: TextStyle(
+            fontSize: noBoldFontSizeVal,
+          ),
+        );
         textSpanList.add(normalText);
       }
     }

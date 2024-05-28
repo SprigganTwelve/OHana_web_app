@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/body_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
@@ -26,13 +27,12 @@ class BlogCardOrg extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Container(
+        height: 800,
         width: 422,
         margin: EdgeInsets.zero,
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius:
-              BorderRadius.circular(ImageDimensionType.standard.borderRaiusVal),
           boxShadow: [
             BoxShadow(
               color: Colors.grey
@@ -50,8 +50,14 @@ class BlogCardOrg extends StatelessWidget {
             ImageAtom(
               link: pathOfTopImage,
             ),
-            UnderlinedTitleMol(
-              text: title,
+            Padding(
+              padding: EdgeInsets.only(left: 40),
+              child: UnderlinedTitleMol(
+                text: title,
+                lineSize: 240,
+                start: true,
+                color: Colors.purple,
+              ),
             ),
             Align(
               alignment: Alignment.center,
@@ -59,8 +65,11 @@ class BlogCardOrg extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 20, right: 20, top: 10, bottom: 10),
                 child: BodyTextAtom(
-                    text: textAndBoldListMap['text'],
-                    boldTextList: textAndBoldListMap['boldTextList']),
+                  maxLines: 10,
+                  text: textAndBoldListMap['text'],
+                  boldTextList: textAndBoldListMap['boldTextList'],
+                  isOverflowEllipsis: true,
+                ),
               ),
             )
           ],

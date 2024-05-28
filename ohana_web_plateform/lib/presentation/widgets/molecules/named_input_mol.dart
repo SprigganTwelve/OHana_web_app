@@ -23,7 +23,7 @@ class NamedInputMol extends StatelessWidget {
             placeholder: placeHolder,
           ),
           const SizedBox(
-            height: 15,
+            height: 30,
           ),
         ],
       ),

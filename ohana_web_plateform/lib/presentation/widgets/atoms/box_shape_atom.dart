@@ -11,7 +11,7 @@ class BoxShapeAtom extends StatelessWidget {
     this.boxShape = BoxShape.rectangle,
     this.heightVal = 300.0,
     this.widthVal = 440.0,
-    this.colorVal = const Color.fromARGB(255, 132, 193, 243),
+    this.colorVal = Colors.purple,
     /*this.text = "" */
   });
 

@@ -1,24 +1,45 @@
+//_is for experimentation
+
 import 'package:flutter/material.dart';
 
-class ImagePainter extends CustomPainter {
+class DropdownExample extends StatefulWidget {
   @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint();
-    final imageRect = Rect.fromLTWH(0, 0, 200, 200);
-    final clipRect = Rect.fromLTWH(50, 50, 100, 100);
+  _DropdownExampleState createState() => _DropdownExampleState();
+}
 
-    canvas.clipRect(clipRect);
+class _DropdownExampleState extends State<DropdownExample> {
+  String? selectedValue;
 
-    final image = NetworkImage('../assets/images/sukuna4.jpg');
-    image
-        .resolve(ImageConfiguration())
-        .addListener(ImageStreamListener((ImageInfo info, bool _) {
-      canvas.drawImageRect(info.image, imageRect, imageRect, paint);
-    }));
-  }
+  final List<String> options = [
+    'Option 1',
+    'Option 2',
+    'Option 3',
+    'Option 4',
+  ];
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dropdown Example'),
+      ),
+      body: Center(
+        child: DropdownButton<String>(
+          value: selectedValue,
+          hint: Text('Select an option'),
+          items: options.map((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          onChanged: (String? newValue) {
+            setState(() {
+              selectedValue = newValue;
+            });
+          },
+        ),
+      ),
+    );
   }
 }

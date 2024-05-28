@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/molecules/search_mol.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/input_atom.dart';
 
 class SearchInputOrg extends StatelessWidget {
   const SearchInputOrg(
@@ -31,7 +32,7 @@ class SearchInputOrg extends StatelessWidget {
           const SizedBox(
             height: 3,
           ),
-          const SearchBarMol(),
+          _getSearchBarItems(),
           Padding(
             padding:
                 const EdgeInsets.only(left: 60, right: 60, bottom: 5, top: 5),
@@ -39,6 +40,27 @@ class SearchInputOrg extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+//searchBar
+  Row _getSearchBarItems() {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        InputAtom(
+          widthVal: 300,
+        ),
+        SizedBox(
+          width: 5,
+        ),
+        ButtonIconAtom(
+          nameSvgFile: 'searchIconGoogleFont.svg',
+          backColor: Colors.purple,
+          color: Colors.white,
+          heightVal: 50,
+        )
+      ],
     );
   }
 }

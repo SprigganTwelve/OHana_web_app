@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class ProfilCardOrg extends StatelessWidget {
   const ProfilCardOrg({super.key});

@@ -1,8 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/main.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
@@ -10,9 +6,7 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart
 import 'package:ohana_web_plateform/presentation/widgets/atoms/link_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/logo_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/underline_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/molecules/nav_bar_dropdown_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
-import 'package:ohana_web_plateform/presentation/widgets/organisme/carousel_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class NavBarOrg extends StatefulWidget {

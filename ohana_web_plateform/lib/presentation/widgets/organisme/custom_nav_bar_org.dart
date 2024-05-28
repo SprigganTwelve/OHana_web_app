@@ -17,7 +17,7 @@ class CustomNavigationBar extends StatefulWidget {
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   List<String> _hoveredSubItems = [];
   bool _isHoveringDropList = false;
-  bool _isHoveringNavBar = false;
+  bool _isHoveringButton = false;
   double _regionBottomRight = 0;
 
   final Map<String, GlobalKey<State<StatefulWidget>>> _navBarItemsKeysList = {
@@ -29,8 +29,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     'carrieres': GlobalKey(),
   };
 
-  void onHoverExit() {
-    if (_isHoveringDropList || _isHoveringDropList) {
+  void onHoverNavBarExit(event) {
+    if (_isHoveringDropList) {
       setState(() {
         _hoveredSubItems = [];
       });
@@ -40,11 +40,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (event) {
-        _isHoveringDropList = true;
-      },
       onExit: (event) {
-        onHoverExit();
+        if (!_isHoveringButton) {
+          setState(() {
+            _hoveredSubItems = [];
+          });
+        }
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -59,38 +60,45 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           ),
           if (_hoveredSubItems.isNotEmpty)
             Positioned(
-                top: 80,
-                left: _regionBottomRight,
-                child: MouseRegion(
-                  onEnter: (event) {},
-                  onExit: (event) {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(
-                              0.5), // Couleur de l'ombre avec opacité
-                          spreadRadius: 5, // Rayon de diffusion de l'ombre
-                          blurRadius: 7, // Rayon de flou de l'ombre
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: _hoveredSubItems
-                          .map((subItem) => Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 5, bottom: 5, left: 20, right: 20),
-                                child: H2TextAtom(
-                                  text: subItem,
-                                ),
-                              ))
-                          .toList(),
-                    ),
+              top: 80,
+              left: _regionBottomRight,
+              child: MouseRegion(
+                onEnter: (event) {
+                  _isHoveringButton = true;
+                },
+                onExit: (event) {
+                  setState(() {
+                    _hoveredSubItems = [];
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(
+                            0.5), // Couleur de l'ombre avec opacité
+                        spreadRadius: 5, // Rayon de diffusion de l'ombre
+                        blurRadius: 7, // Rayon de flou de l'ombre
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                   ),
-                ))
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: _hoveredSubItems
+                        .map((subItem) => Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 5, bottom: 5, left: 20, right: 20),
+                              child: H2TextAtom(
+                                text: subItem,
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
@@ -147,9 +155,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   }
 
   void onHoverEnter(subItems, mouseRegionKey) {
-    setState(() {
-      _hoveredSubItems = subItems;
-    });
     final RenderBox? renderBox =
         mouseRegionKey.currentContext?.findRenderObject() as RenderBox?;
     /*if (renderBox != null) {
@@ -157,6 +162,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     }*/
     if (renderBox != null) {
       setState(() {
+        _isHoveringButton = true;
+        _hoveredSubItems = subItems;
         _regionBottomRight =
             renderBox.localToGlobal(renderBox.size.bottomLeft(Offset.zero)).dx;
       });

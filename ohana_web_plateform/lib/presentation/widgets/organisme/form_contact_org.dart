@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/textarea_shape_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/named_input_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
@@ -22,6 +23,12 @@ class FormContactOrg extends StatelessWidget {
             text: item['name'],
             placeHolder: item['placeholder'],
           ),
+        const TextAreaShape(
+          placeholder: 'Votre Message',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
         const ButtonAtom('Envoyer', type: ButtonType.standard)
       ],
     );

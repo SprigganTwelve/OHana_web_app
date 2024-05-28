@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/body_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
+import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/molecules/social_network_icon_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/text_list_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/custom_nav_bar_org.dart';
+import 'package:ohana_web_plateform/presentation/widgets/organisme/footer_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class HomeTemplate extends StatelessWidget {
@@ -27,36 +28,7 @@ class HomeTemplate extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        height: 600,
-                        width: mediaScreenWidth,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                        child: const ImageAtom(
-                          link: 'sukuna3.jpg',
-                          imageType: ImageDimensionType.defaultCarouselImage,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 600 //imageHeight
-                        ,
-                        child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 170),
-                            child: Text(
-                              'Bienvenue à Ohana Entreprise',
-                              style:
-                                  TextStyle(fontSize: 140, color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  _getHomeBanner(mediaScreenWidth),
                   _getExpertiseList(),
                   const SizedBox(
                     height: 50,
@@ -69,7 +41,8 @@ class HomeTemplate extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  _getEndPart(mediaScreenWidth)
+                  // _getEquipMembers(),
+                  FooterOrg(mediaScreenWidth: mediaScreenWidth)
                 ],
               )
             ],
@@ -82,12 +55,43 @@ class HomeTemplate extends StatelessWidget {
     );
   }
 
+// HOME BANNER
+  _getHomeBanner(mediaScreenWidth) {
+    return Stack(
+      children: [
+        Container(
+          height: 600,
+          width: mediaScreenWidth,
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+          child: const ImageAtom(
+            link: 'buisness2.jpg',
+            imageType: ImageDimensionType
+                .defaultCarouselImage, //fit the height of container
+          ),
+        ),
+        const SizedBox(
+          height: 600, //Container Height
+          child: Align(
+            alignment: Alignment.center,
+            child: H1TextAtom(
+              text: "BIENVENUE CHEZ OHANA ENTREPRISE",
+              color: Colors.white,
+              fontSize: 60,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
 //EXPERTISE
   _getExpertiseList() {
     return Container(
-      color: Colors.amber,
-      height: 730,
       // color: Colors.amber,
+      height: 750,
+      padding: const EdgeInsets.only(top: 10),
       child: Column(
         children: [
           const Row(
@@ -109,12 +113,12 @@ class HomeTemplate extends StatelessWidget {
             spacing: 40, //horizontal space between children
             alignment: WrapAlignment.center,
             children: [
-              _getExpertiseBloc('devLogo.svg', 'Développement'),
-              _getExpertiseBloc('design.svg', 'Design'),
-              _getExpertiseBloc('locked.svg', 'Cybersecurité'),
-              _getExpertiseBloc('ref.svg', 'référencement'),
-              _getExpertiseBloc('testValidate.svg', 'Testing'),
-              _getExpertiseBloc('increase_model2.svg', 'IA Generative'),
+              _getExpertiseBloc('devLogo.svg', 'DÉVELOPPEMENT \n LOGICIELS'),
+              _getExpertiseBloc('design.svg', 'DESIGN'),
+              _getExpertiseBloc('locked.svg', 'CYBERSECURITÉ'),
+              _getExpertiseBloc('ref.svg', 'RÉFÉRENCEMENT'),
+              _getExpertiseBloc('testValidate.svg', 'TESTING'),
+              _getExpertiseBloc('increase_model2.svg', 'IA GENERATIVE'),
             ],
           )
         ],
@@ -128,7 +132,7 @@ class HomeTemplate extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.purple,
-          borderRadius: BorderRadius.circular(20),
+          //borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.grey
@@ -166,6 +170,12 @@ class HomeTemplate extends StatelessWidget {
 
 //--ADDITIONNAL SKILL------
   _getPlusAboutOhana() {
+    List<String> textListValues = [
+      'Choississez un accompagnement',
+      'Combinaison entre expertise et rigueur',
+      'Un service de qualité',
+      'Accueil chaleureux'
+    ];
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start, //begin at Start
         mainAxisSize: MainAxisSize.min,
@@ -192,16 +202,11 @@ class HomeTemplate extends StatelessWidget {
                 color: Colors.purple,
                 height: ImageDimensionType
                     .imageListTextView.heightVal, //imageHeight
-                child: const Align(
+                child: Align(
                   alignment: Alignment.center,
                   child: TextListMol(
                     textColor: Colors.white,
-                    textList: [
-                      'choississer un accompagnement',
-                      'Combinaison entre expertise et rigueur',
-                      'Un service  de qualité',
-                      'accueil chaleureux'
-                    ],
+                    textList: textListValues,
                   ),
                 ),
               )
@@ -211,13 +216,12 @@ class HomeTemplate extends StatelessWidget {
   }
 
 //-----OUR PARTNER
-
   _getBannerForParners(mediaScreenWidth) {
     return Column(
       children: [
         const UnderlinedTitleMol(
-          text: 'Il nous font confiance',
-          start: true,
+          text: 'Ils nous font confiance',
+          start: false,
           color: Colors.purple,
           lineSize: 300,
         ),
@@ -225,10 +229,10 @@ class HomeTemplate extends StatelessWidget {
           height: SPACE_TITLE_BODY,
         ),
         SizedBox(
-          height: 600,
+          height: 500,
           width: mediaScreenWidth,
           child: const ImageAtom(
-            link: 'sukuna4.jpg',
+            link: 'trustcompany.jpg',
             imageType: ImageDimensionType.defaultCarouselImage,
           ),
         ),
@@ -236,27 +240,5 @@ class HomeTemplate extends StatelessWidget {
     );
   }
 
-//--------
-  Container _getEndPart(mediaScreenWidth) {
-    return Container(
-      color: Colors.purple,
-      width: mediaScreenWidth,
-      height: 200,
-      child: const Row(
-        children: [
-          Column(
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              Padding(
-                  padding: EdgeInsets.only(left: 50),
-                  child: SocialNetworkIconMol(
-                      svgColor: Colors.white, heightVal: 30))
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+//----------
 }

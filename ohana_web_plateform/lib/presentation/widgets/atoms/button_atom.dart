@@ -7,7 +7,12 @@ class ButtonAtom extends StatefulWidget {
   final double fontSizeVal;
 
   const ButtonAtom(this.content,
-      {super.key, required this.type, this.fontSizeVal = 17});
+      {super.key,
+      required this.type,
+      this.fontSizeVal = 17,
+      this.paddingEdgeInsetValue = const EdgeInsets.only(
+          left: 20.0, top: 5.0, right: 20.0, bottom: 5.0)});
+  final EdgeInsets paddingEdgeInsetValue;
 
   @override
   _ButtonAtomState createState() => _ButtonAtomState();
@@ -26,11 +31,11 @@ class _ButtonAtomState extends State<ButtonAtom> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.only(
-            left: 20.0, top: 5.0, right: 20.0, bottom: 5.0),
+        padding: widget.paddingEdgeInsetValue,
         decoration: BoxDecoration(
             color: _isHover ? widget.type.hoverColor : widget.type.primaryColor,
-            border: _isHover ? getBorderOnNavbarButton(widget.type) : null),
+            border: _isHover ? getBorderOnNavbarButton(widget.type) : null,
+            borderRadius: BorderRadius.circular(widget.type.border)),
         child: Text(
           widget.content,
           style: TextStyle(

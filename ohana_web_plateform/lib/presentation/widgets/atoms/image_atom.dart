@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class ImageAtom extends StatelessWidget {
   const ImageAtom(
@@ -14,52 +15,11 @@ class ImageAtom extends StatelessWidget {
   final ImageDimensionType imageType;
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(imageType.borderRaiusVal),
-      child: Image.asset(
-        'assets/images/$link',
-        fit: fitVal,
-        width: imageType.widthVal,
-        height: imageType.heightVal,
-      ),
+    return Image.asset(
+      'assets/images/$link',
+      fit: fitVal,
+      width: imageType.widthVal,
+      height: imageType.heightVal,
     );
   }
 }
-
-enum ImageDimensionType {
-  defaultCarouselImage(heightVal: 450, borderRaiusVal: 0),
-  standard(
-    heightVal: 340,
-    widthVal: 420,
-    borderRaiusVal: 50,
-  ),
-  videoImage(
-    heightVal: 400,
-    widthVal: 400,
-    borderRaiusVal: 20,
-  ),
-  userImage(
-    borderRaiusVal: 100,
-    heightVal: 150,
-    widthVal: 150,
-  ),
-  imageListTextView(
-    heightVal: 500,
-    widthVal: 500,
-    borderRaiusVal: 0,
-  ),
-  imageLink(heightVal: 90, widthVal: 200, borderRaiusVal: 10);
-
-  final double? heightVal;
-  final double? widthVal;
-  final double borderRaiusVal;
-
-  const ImageDimensionType(
-      {this.heightVal, this.widthVal, this.borderRaiusVal = 50});
-
-  bool isCarouselImage() {
-    return this == ImageDimensionType.defaultCarouselImage;
-  }
-}
-
-// "assets/images/gojo.jpg",

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_shape_atom.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class CarouselOrg extends StatefulWidget {
   const CarouselOrg({
@@ -52,25 +53,28 @@ class _CarouselOrgState extends State<CarouselOrg> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: widget.heightVal,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           CarouselSlider(
               items: widget.imageListAtom.map((image) {
                 return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: screenWidth,
                   decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 255, 255, 255),
+                    // borderRadius: BorderRadius.circular(20)
                   ),
-                  child: image,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20), child: image),
                 );
               }).toList(),
               options: CarouselOptions(
-                  height: widget.heightVal,
+                  height: 600,
                   viewportFraction: 1,
                   onPageChanged: (index, _) =>
                       dotsController.updatePageIndicator(index))),
-          getTextMessage(),
+          _getTextMessage(),
           DotsWidgetView(
             slideNumber: widget.imageListAtom.length,
             dotInstanceController: dotsController,
@@ -80,9 +84,9 @@ class _CarouselOrgState extends State<CarouselOrg> {
     );
   }
 
-  getTextMessage() {
-    return const Align(
-      alignment: Alignment.centerLeft,
+  _getTextMessage() {
+    return const Positioned(
+      top: 300,
       child: Padding(
         padding: EdgeInsets.only(left: 40),
         child: Row(
@@ -92,7 +96,7 @@ class _CarouselOrgState extends State<CarouselOrg> {
               color: Colors.purple,
             ),
             Text(
-              "OHana vous souhaite la bienvennue",
+              "Les news D'OHana",
               style: TextStyle(fontSize: 50, color: Colors.white),
             )
           ],
@@ -129,7 +133,7 @@ class DotsWidgetView extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
             children: [
               for (var i = 0; i <= slideNumber; i++)
                 Padding(
