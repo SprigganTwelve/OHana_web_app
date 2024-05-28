@@ -9,4 +9,10 @@ class BlogPostFirebaseRepository implements BlogPostRepository {
     // TODO: implement getAllBlogPosts
     throw UnimplementedError();
   }
+
+  @override
+  BlogPost getBlogPostById(int id) {
+    // TODO: implement getBlogPostById
+    throw UnimplementedError();
+  }
 }

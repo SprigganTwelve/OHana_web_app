@@ -40,10 +40,10 @@ class ProfilCardInfOrg extends StatelessWidget {
               )),
           if (addingText != '')
             Padding(
-                padding: EdgeInsets.only(left: 120),
+                padding: const EdgeInsets.only(left: 120),
                 child: Text(
                   addingText,
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 )),
           Row(
             children: [

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/body_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/molecules/underlined_title_mol.dart';
+import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class BlogCardOrg extends StatelessWidget {
   const BlogCardOrg(
@@ -49,9 +50,10 @@ class BlogCardOrg extends StatelessWidget {
           children: [
             ImageAtom(
               link: pathOfTopImage,
+              imageType: ImageDimensionType.standard,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 40),
+              padding: const EdgeInsets.only(left: 40),
               child: UnderlinedTitleMol(
                 text: title,
                 lineSize: 240,

@@ -47,16 +47,16 @@ const List<Map<String, dynamic>> LIST_OF_SERVICES = [
   {
     'id': 1,
     'title': 'Développement web',
-    'image': "dev3.jpg",
+    'image': "sukuna3.jpg",
     'keyWords': [' HTML', 'HTML', 'CSS', 'Flutter'],
     'text':
-        " ipsum dolor sit amet consectetur adipi  sic0ing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur Lorem ipsum dolor sit amet consectetur adipi  sicing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur  ... .",
+        " ipsum dolor sit amet consectetur adipi  sic0ing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur Lorem ipsum dolor sit amet consectetur adipi  sicing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur g elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur Lorem ipsum dolor sit amet consectetur adipi  sicing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque teneturg elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur Lorem ipsum dolor sit amet consectetur adipi  sicing elit. Dicta labore, aliquam sequi delectus fuga magni  consequuntur neque eaque tenetur  ... .",
     'boldTextList': [""]
   },
   {
     'id': 2,
     'title': 'Application',
-    'image': 'Cover.jpg',
+    'image': 'React-scaled.jpeg',
     'keyWords': [
       'Flutter',
       'Android/iOS',
@@ -67,7 +67,7 @@ const List<Map<String, dynamic>> LIST_OF_SERVICES = [
   {
     'id': 3,
     'title': 'Logiciels ',
-    'image': 'Cover.jpg',
+    'image': 'cybert-sécu.jpg',
     'keyWords': [
       'Flutter',
     ],
@@ -147,44 +147,45 @@ enum ButtonType {
 }
 
 enum ImageDimensionType {
-  defaultCarouselImage(heightVal: 600, borderRaiusVal: 0),
+  defaultCarouselImage(
+    heightVal: 600,
+  ),
   standard(
     heightVal: 340,
     widthVal: 420,
-    borderRaiusVal: 50,
   ),
-
   offerImage(
     heightVal: 220,
     widthVal: 170,
-    borderRaiusVal: 0,
   ),
   imageEquipMembers(
     heightVal: 220,
     widthVal: 220,
   ),
-
-  circular(
-    borderRaiusVal: 50,
-  ),
+  circular(),
   userImage(
-    borderRaiusVal: 100,
     heightVal: 150,
     widthVal: 150,
   ),
+
   imageListTextView(
     heightVal: 500,
     widthVal: 500,
-    borderRaiusVal: 0,
   ),
-  imageLink(heightVal: 90, widthVal: 200, borderRaiusVal: 10);
+  serviceImage(
+    heightVal: 550,
+    widthVal: 1000,
+  ),
+  imageLink(
+    heightVal: 90,
+    widthVal: 200,
+  );
 
   final double? heightVal;
   final double? widthVal;
-  final double borderRaiusVal;
+  final BorderRadiusGeometry? border;
 
-  const ImageDimensionType(
-      {this.heightVal, this.widthVal, this.borderRaiusVal = 50});
+  const ImageDimensionType({this.heightVal, this.widthVal, this.border});
 
   bool isCarouselImage() {
     return this == ImageDimensionType.defaultCarouselImage;

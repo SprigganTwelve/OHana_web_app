@@ -8,6 +8,7 @@ class BodyTextAtom extends StatelessWidget {
   final double noBoldFontSizeVal;
   final bool isOverflowEllipsis;
   final int? maxLines;
+  final bool uniqueModeBoldList;
 
   const BodyTextAtom(
       {super.key,
@@ -16,20 +17,23 @@ class BodyTextAtom extends StatelessWidget {
       this.boldFontSizeVal = 20,
       this.noBoldFontSizeVal = 20,
       this.isOverflowEllipsis = false,
-      this.maxLines});
+      this.maxLines,
+      this.uniqueModeBoldList = false});
 
   @override
   Widget build(BuildContext context) {
-    String formattedText = formatText(text);
+    String formattedText = formatText(text, uniqueModeBoldList);
     return getRichTextFromFormattedText(formattedText);
   }
 
-  String formatText(String text) {
+  String formatText(String text, bool mode) {
     String newContent = text;
     for (var i = 0; i < boldTextList.length; i++) {
       String boldWord = boldTextList[i];
       if (text.contains(boldWord)) {
-        newContent = newContent.replaceAll(boldWord, '/$boldWord/');
+        mode
+            ? newContent = newContent.replaceAll(boldWord, '/$boldWord/')
+            : newContent.replaceFirst(boldWord, '/$boldWord/');
       }
     }
     return newContent;

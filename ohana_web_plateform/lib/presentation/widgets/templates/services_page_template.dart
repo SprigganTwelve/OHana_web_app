@@ -16,6 +16,7 @@ import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
 class ServicesPagesTemplate extends StatelessWidget {
   const ServicesPagesTemplate({super.key});
+  final int index = 0; //for example
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +37,10 @@ class ServicesPagesTemplate extends StatelessWidget {
                   height: 40,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      width: 70,
+                      width: 90,
                     ),
                     _getServiceView(),
                     const SizedBox(
@@ -48,7 +50,7 @@ class ServicesPagesTemplate extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 200,
                 ),
                 FooterOrg(mediaScreenWidth: mediaScreenWidth)
               ],
@@ -62,76 +64,27 @@ class ServicesPagesTemplate extends StatelessWidget {
     );
   }
 
+//OPTIONS
+  _getOptions() {}
+
 //DEV
   _getServiceView() {
-    int index = 0; //for example
-    return Stack(
-      alignment: Alignment.center,
-      clipBehavior: Clip.none,
-      children: [
-        Column(
-          children: [
-            SizedBox(
-              width: 1000,
-              height: 700,
-              child: ImageAtom(link: LIST_OF_SERVICES[index]['image']),
-            )
-          ],
-        ),
-        const SizedBox(
-          height: 400,
-        ),
-        Positioned(
-          bottom: 0,
-          child: SingleChildScrollView(
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.transparent),
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5)),
-                  boxShadow: const [
-                    BoxShadow(
-                        spreadRadius: 5, color: Colors.grey, blurRadius: 5)
-                  ]),
-              width: 1000,
-              height: 300,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const H1TextAtom(text: 'Développement mobile'),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  _getKeyWords(index),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: SizedBox(
-                      width: 700,
-                      child: BodyTextAtom(
-                          text: LIST_OF_SERVICES[index]['text'],
-                          boldTextList: LIST_OF_SERVICES[index]
-                              ['boldTextList']),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ],
-              ),
+    return SizedBox(
+      width: ImageDimensionType.serviceImage.widthVal,
+      height: ImageDimensionType.serviceImage.heightVal,
+      child: Stack(
+        alignment: Alignment.center,
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            child: ImageAtom(
+              link: LIST_OF_SERVICES[index]['image'],
+              imageType: ImageDimensionType.serviceImage,
             ),
           ),
-        )
-      ],
+          Positioned(bottom: -170, child: _getTextService())
+        ],
+      ),
     );
   }
 
@@ -150,20 +103,100 @@ class ServicesPagesTemplate extends StatelessWidget {
     );
   }
 
+  Positioned _getTextService() {
+    return Positioned(
+      bottom: -20,
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.transparent),
+            color: Colors.white,
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
+            boxShadow: const [
+              BoxShadow(spreadRadius: 5, color: Colors.grey, blurRadius: 5)
+            ]),
+        width: 1000,
+        height: 340,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              const H1TextAtom(text: 'Développement mobile'),
+              const SizedBox(
+                height: 20,
+              ),
+              _getKeyWords(index),
+              const SizedBox(
+                height: 20,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  width: 700,
+                  child: BodyTextAtom(
+                      text: LIST_OF_SERVICES[index]['text'],
+                      boldTextList: LIST_OF_SERVICES[index]['boldTextList']),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 //OTHERS
   _getOtherServices() {
     return Column(
       children: [
-        _getSingleCard(),
+        for (var j = 0; j < LIST_OF_SERVICES.length; j++)
+          _getSingleCard(
+              image: LIST_OF_SERVICES[j]['image'],
+              title: LIST_OF_SERVICES[j]['title'])
       ],
     );
   }
 
-  _getSingleCard() {
-    return const SizedBox(
+  _getSingleCard({image, title}) {
+    return Container(
+      width: 700,
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color:
+                Colors.grey.withOpacity(0.5), // Couleur de l'ombre avec opacité
+            spreadRadius: 5, // Rayon de diffusion de l'ombre
+            blurRadius: 7, // Rayon de flou de l'ombre
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [ImageAtom(link: "phone1.jpg"), H2TextAtom(text: 'text')],
+        children: [
+          ImageAtom(
+            link: image,
+            widthVal: 120,
+            heightVal: 120,
+            border: BorderRadius.circular(COMPLETE_CIRCULAR_ITEM),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          H1TextAtom(text: title)
+        ],
       ),
     );
   }

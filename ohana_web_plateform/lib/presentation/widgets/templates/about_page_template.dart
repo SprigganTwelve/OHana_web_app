@@ -437,7 +437,11 @@ class AboutPageTemplate extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-            width: mediaScreenWidth, child: const ImageAtom(link: 'join.jpg')),
+            width: mediaScreenWidth,
+            child: const ImageAtom(
+              link: 'join.jpg',
+              imageType: ImageDimensionType.standard,
+            )),
         Positioned(
           bottom: 20,
           left: 900,
