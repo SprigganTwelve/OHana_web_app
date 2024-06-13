@@ -8,99 +8,86 @@ import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/vertical_line_shape_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
-class CarouselOrg extends StatefulWidget {
-  const CarouselOrg({
+class ImageCarouselOrg extends StatefulWidget {
+  const ImageCarouselOrg({
     super.key,
     this.imageListAtom = const [
-      ImageAtom(
-        link: 'carousel1.jpg',
-        fitVal: BoxFit.cover,
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
-      ImageAtom(
-        link: 'back1.jpg',
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
-      ImageAtom(
-        link: 'carousel3.jpg',
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
-      ImageAtom(
-        link: 'carousel4.jpg',
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
-      ImageAtom(
-        link: 'sukuna1.jpg',
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
-      ImageAtom(
-        link: 'sukuna3.jpg',
-        imageType: ImageDimensionType.defaultCarouselImage,
-      ),
+      'dev12.jpg',
+      'dev7.jpg',
+      'dev8.jpg',
+      'dev5.jpg',
+      'dev9.jpg',
+      'dev11.jpg',
     ],
-    this.heightVal = 450,
   });
-  final List<ImageAtom> imageListAtom;
-  final double heightVal;
+  final List<String> imageListAtom;
 
   @override
-  State<CarouselOrg> createState() => _CarouselOrgState();
+  State<ImageCarouselOrg> createState() => _CarouselOrgState();
 }
 
-class _CarouselOrgState extends State<CarouselOrg> {
+class _CarouselOrgState extends State<ImageCarouselOrg> {
   final GetdotController dotsController = Get.put(GetdotController());
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          CarouselSlider(
-              items: widget.imageListAtom.map((image) {
+    return Stack(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: ImageDimensionType.defaultCarouselImage.heightVal,
+            viewportFraction: 0.6,
+            autoPlay: true,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {
+              dotsController.updatePageIndicator(index);
+            },
+          ),
+          items: widget.imageListAtom.map((imagePath) {
+            return Builder(
+              builder: (BuildContext context) {
                 return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: screenWidth,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    // borderRadius: BorderRadius.circular(20)
-                  ),
+                  clipBehavior: Clip.none,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20), child: image),
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: ImageAtom(link: imagePath),
+                  ),
                 );
-              }).toList(),
-              options: CarouselOptions(
-                  height: 600,
-                  viewportFraction: 1,
-                  onPageChanged: (index, _) =>
-                      dotsController.updatePageIndicator(index))),
-          _getTextMessage(),
-          DotsWidgetView(
+              },
+            );
+          }).toList(),
+        ),
+        Positioned(
+          bottom: 20, // Adjust the position as needed
+          left: 0,
+          right: 0,
+          child: DotsWidgetView(
             slideNumber: widget.imageListAtom.length,
             dotInstanceController: dotsController,
-          )
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 
-  _getTextMessage() {
-    return const Positioned(
+  Widget _getTextMessage() {
+    return Positioned(
       top: 300,
-      child: Padding(
-        padding: EdgeInsets.only(left: 40),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            VerticalLineShapeAtom(
-              color: Colors.purple,
-            ),
-            Text(
-              "Les news D'OHana",
-              style: TextStyle(fontSize: 50, color: Colors.white),
-            )
-          ],
-        ),
+      left: 40,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const VerticalLineShapeAtom(
+            color: Colors.purple,
+          ),
+          const Text(
+            "Les news D'OHana",
+            style: TextStyle(fontSize: 50, color: Colors.white),
+          ),
+        ],
       ),
     );
   }
@@ -108,51 +95,48 @@ class _CarouselOrgState extends State<CarouselOrg> {
 
 class GetdotController extends GetxController {
   final carouselCurrentIndex = 0.obs;
-  void updatePageIndicator(index) {
+
+  void updatePageIndicator(int index) {
     carouselCurrentIndex.value = index;
   }
 }
 
 class DotsWidgetView extends StatelessWidget {
-  const DotsWidgetView(
-      {super.key,
-      required this.slideNumber,
-      required this.dotInstanceController});
+  const DotsWidgetView({
+    super.key,
+    required this.slideNumber,
+    required this.dotInstanceController,
+  });
+
   final int slideNumber;
   final primaryColor = Colors.purple;
   final secondColor = Colors.white;
   final double widthVal = 21.5;
   final double thickeness = 8.0;
   final GetdotController dotInstanceController;
+
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => SizedBox(
-        height: ImageDimensionType.defaultCarouselImage.heightVal,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              for (var i = 0; i <= slideNumber; i++)
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Container(
-                    width: widthVal,
-                    height: thickeness,
-                    decoration: BoxDecoration(
-                        color:
-                            dotInstanceController.carouselCurrentIndex.value ==
-                                    i
-                                ? primaryColor
-                                : secondColor,
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                )
-            ],
-          ),
-        ),
+      () => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          for (var i = 0; i < slideNumber; i++)
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                width: widthVal,
+                height: thickeness,
+                decoration: BoxDecoration(
+                  color: dotInstanceController.carouselCurrentIndex.value == i
+                      ? primaryColor
+                      : secondColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }

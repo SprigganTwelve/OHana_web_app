@@ -1,21 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/body_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/h1_text_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/h2_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/image_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/path_custompainter_atom.dart';
-import 'package:ohana_web_plateform/presentation/widgets/atoms/underline_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/custom_nav_bar_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/organisme/footer_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
-class ServicesPagesTemplate extends StatelessWidget {
-  const ServicesPagesTemplate({super.key});
+class ServicesTemplate extends StatelessWidget {
+  const ServicesTemplate({super.key});
   final int index = 0; //for example
 
   @override

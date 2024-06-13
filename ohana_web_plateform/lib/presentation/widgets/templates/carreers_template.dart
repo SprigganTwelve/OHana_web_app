@@ -10,8 +10,8 @@ import 'package:ohana_web_plateform/presentation/widgets/organisme/custom_nav_ba
 import 'package:ohana_web_plateform/presentation/widgets/organisme/footer_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
-class OffersPageTemplate extends StatelessWidget {
-  const OffersPageTemplate({super.key});
+class CarrersTemplate extends StatelessWidget {
+  const CarrersTemplate({super.key});
 
   @override
   Widget build(BuildContext context) {

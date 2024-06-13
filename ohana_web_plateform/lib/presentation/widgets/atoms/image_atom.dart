@@ -26,8 +26,8 @@ class ImageAtom extends StatelessWidget {
       child: Image.asset(
         'assets/images/$link',
         fit: fitVal,
-        width: imageType?.widthVal ?? widthVal,
-        height: imageType?.heightVal ?? heightVal,
+        width: widthVal ?? imageType?.widthVal,
+        height: heightVal ?? imageType?.heightVal,
       ),
     );
   }

@@ -5,35 +5,44 @@ class BodyTextAtom extends StatelessWidget {
   final String text;
   final List<String> boldTextList;
   final double boldFontSizeVal;
-  final double noBoldFontSizeVal;
   final bool isOverflowEllipsis;
+  final Color boldTextListColor;
   final int? maxLines;
-  final bool uniqueModeBoldList;
+  final bool boldListTextMode;
 
   const BodyTextAtom(
       {super.key,
       required this.text,
       required this.boldTextList,
       this.boldFontSizeVal = 20,
-      this.noBoldFontSizeVal = 20,
       this.isOverflowEllipsis = false,
       this.maxLines,
-      this.uniqueModeBoldList = false});
+      this.boldListTextMode = false,
+      this.boldTextListColor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
-    String formattedText = formatText(text, uniqueModeBoldList);
+    String formattedText = formatText(
+      text,
+    );
     return getRichTextFromFormattedText(formattedText);
   }
 
-  String formatText(String text, bool mode) {
+  String formatText(
+    String text,
+  ) {
     String newContent = text;
     for (var i = 0; i < boldTextList.length; i++) {
       String boldWord = boldTextList[i];
       if (text.contains(boldWord)) {
-        mode
-            ? newContent = newContent.replaceAll(boldWord, '/$boldWord/')
-            : newContent.replaceFirst(boldWord, '/$boldWord/');
+        if (boldListTextMode) {
+          newContent = newContent.replaceFirst(
+            boldWord,
+            '/$boldWord/',
+          );
+        } else {
+          newContent = newContent.replaceAll(boldWord, '/$boldWord/');
+        }
       }
     }
     return newContent;
@@ -58,15 +67,17 @@ class BodyTextAtom extends StatelessWidget {
       if (boldTextList.contains(textList[i])) {
         var boldText = TextSpan(
           text: textList[i],
-          style:
-              TextStyle(fontWeight: FontWeight.bold, fontSize: boldFontSizeVal),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: boldFontSizeVal,
+              color: boldTextListColor),
         );
         textSpanList.add(boldText);
       } else {
         var normalText = TextSpan(
           text: textList[i],
           style: TextStyle(
-            fontSize: noBoldFontSizeVal,
+            fontSize: boldFontSizeVal,
           ),
         );
         textSpanList.add(normalText);

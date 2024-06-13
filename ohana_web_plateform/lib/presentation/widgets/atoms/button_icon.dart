@@ -25,6 +25,8 @@ class ButtonIconAtom extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(2),
       child: Container(
+        height: heightVal,
+        width: widthVal,
         decoration: BoxDecoration(
           border: Border(bottom: borderSideBottom),
           borderRadius: BorderRadius.circular(radius),

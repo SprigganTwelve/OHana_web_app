@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/body_text_atom.dart';
 import 'package:ohana_web_plateform/presentation/widgets/atoms/button_icon.dart';
@@ -181,7 +183,7 @@ class HomeTemplate extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const UnderlinedTitleMol(
-            text: 'Les + de OHana',
+            text: 'Les + de OHana Entreprise',
             start: true,
             color: Colors.purple,
           ),
@@ -239,6 +241,23 @@ class HomeTemplate extends StatelessWidget {
       ],
     );
   }
+
+  // _getCustomCarousel(List<Widget> lisOfItems, {seconde = 4}) {
+  //   double heightBloc = 316;
+  //   return Container(
+  //     color: const Color(0xFFD9D9D9),
+  //     padding: const EdgeInsets.only(top: 10, bottom: 10),
+  //     child: CarouselSlider(
+  //         items: lisOfItems,
+  //         options: CarouselOptions(
+  //             initialPage: 0,
+  //             height: heightBloc,
+  //             viewportFraction: 0.3,
+  //             autoPlay: true,
+  //             enlargeCenterPage: true,
+  //             autoPlayInterval: Duration(seconds: seconde))),
+  //   );
+  // }
 
 //----------
 }

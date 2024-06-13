@@ -9,13 +9,14 @@ import 'package:ohana_web_plateform/presentation/widgets/organisme/custom_nav_ba
 import 'package:ohana_web_plateform/presentation/widgets/organisme/footer_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
-class NewsPageTemplate extends StatelessWidget {
-  const NewsPageTemplate({super.key});
+class NewsTemplate extends StatelessWidget {
+  const NewsTemplate({super.key});
 
   @override
   Widget build(BuildContext context) {
     final mediaScreenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SizedBox(
         width: mediaScreenWidth,
         child: Stack(
@@ -73,7 +74,7 @@ class NewsPageTemplate extends StatelessWidget {
             ],
           ),
         ),
-        const CarouselOrg()
+        const ImageCarouselOrg()
       ],
     );
   }

@@ -13,8 +13,8 @@ import 'package:ohana_web_plateform/presentation/widgets/organisme/footer_org.da
 import 'package:ohana_web_plateform/presentation/widgets/organisme/form_contact_org.dart';
 import 'package:ohana_web_plateform/presentation/widgets/widgets_utils.dart';
 
-class ContactPageTemplate extends StatelessWidget {
-  const ContactPageTemplate({super.key});
+class ContactTemplate extends StatelessWidget {
+  const ContactTemplate({super.key});
 
   @override
   Widget build(BuildContext context) {

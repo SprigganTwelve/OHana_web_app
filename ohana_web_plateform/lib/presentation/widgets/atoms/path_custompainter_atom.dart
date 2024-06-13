@@ -36,6 +36,7 @@ class ShapePainter extends CustomPainter {
 }
 
 class TrianglePainter extends CustomPainter {
+  //is used for popup of carrer page
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()..color = Colors.purple;
@@ -44,6 +45,29 @@ class TrianglePainter extends CustomPainter {
     path.moveTo(size.width, 0);
     path.lineTo(0, size.height);
     path.lineTo(size.width, 20);
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+}
+
+class BackArrowPainterAtom extends CustomPainter {
+  //is used for catalog page
+  BackArrowPainterAtom({required this.color});
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()..color = color;
+    final Path path = Path();
+
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width / 2, size.height);
     path.close();
 
     canvas.drawPath(path, paint);
